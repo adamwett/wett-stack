@@ -6,14 +6,17 @@
         "name": "next"
       }
     ],
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "module": "esnext"
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    ".next/types/**/*.ts",
     "next-env.d.ts",
     "next.config.js",
-    ".next/types/**/*.ts"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/style.css",
+    "dist/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

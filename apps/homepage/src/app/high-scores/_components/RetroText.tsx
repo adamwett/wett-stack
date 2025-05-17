@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@repo/ui/utils';
+import { cn } from '@repo/ui/lib/utils';
 import localFont from 'next/font/local';
 
 export const font = localFont({ src: '../../../../public/fonts/PressStart2P.ttf' });

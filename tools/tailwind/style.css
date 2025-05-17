@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@source '.';
+
 @theme {
   --color-selected: hsl(var(--selected));
   --color-nav: hsl(var(--nav));

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import '@repo/ui/globals.css';
+import '../style.css';
 
 export const metadata: Metadata = {
   title: 'wett.dev',
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='dark'>
+    <html lang='en'>
       <body>{children}</body>
     </html>
   );

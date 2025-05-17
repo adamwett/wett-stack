@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@repo/ui/utils';
+import { cn } from '@repo/ui/lib/utils';
 import type { ReactNode } from 'react';
 import RetroText from './RetroText';
 interface TooltipProps {
