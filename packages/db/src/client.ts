@@ -1,21 +1,12 @@
-import { type NodePgDatabase, drizzle } from 'drizzle-orm/node-postgres';
-
+import type { D1Database, Env } from '@repo/wrangler-config';
+import { type AnyD1Database, type DrizzleD1Database, drizzle } from 'drizzle-orm/d1';
 import * as schema from './schema';
 
-export interface DatabaseClientOptions {
-  databaseUrl?: string;
-  max?: number;
-}
+export type DatabaseInstance = DrizzleD1Database<typeof schema>;
 
-export type DatabaseInstance = NodePgDatabase<typeof schema>;
-
-export const createDb = (opts?: DatabaseClientOptions): DatabaseInstance => {
-  return drizzle({
+export const createDb = (db: D1Database): DatabaseInstance => {
+  return drizzle(db, {
     schema,
     casing: 'snake_case',
-    connection: {
-      connectionString: opts?.databaseUrl,
-      max: opts?.max,
-    },
   });
 };

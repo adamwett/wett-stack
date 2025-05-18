@@ -15,7 +15,7 @@ export type AuthInstance = ReturnType<typeof betterAuth>;
  */
 export const getBaseOptions = (db: DatabaseInstance): BetterAuthOptions => ({
   database: drizzleAdapter(db, {
-    provider: 'pg',
+    provider: 'sqlite',
   }),
   plugins: [],
 });
@@ -24,7 +24,7 @@ export const createAuth = ({ webUrl, db, authSecret }: AuthOptions): AuthInstanc
   return betterAuth({
     ...getBaseOptions(db),
     secret: authSecret,
-    trustedOrigins: [webUrl].map((url) => new URL(url).origin),
+    // trustedOrigins: [webUrl].map((url) => new URL(url).origin),
     session: {
       cookieCache: {
         enabled: true,

@@ -1,8 +1,15 @@
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
+import type { Headers } from '@repo/wrangler-config';
 import { TRPCError, initTRPC } from '@trpc/server';
 import SuperJSON from 'superjson';
 
+const TIMING_MIDDLEWARE_ENABLED = false;
+
+/**
+ * Create a TRPC context, including the database and auth instance
+ * @returns The database and user's session
+ */
 export const createTRPCContext = async ({
   auth,
   db,
@@ -24,12 +31,22 @@ export const createTRPCContext = async ({
   };
 };
 
+/**
+ * tRPC context with SuperJSON as the serializer
+ * @returns The TRPC instance
+ */
 export const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: SuperJSON,
 });
 
+/**
+ * The tRPC router instance
+ */
 export const router = t.router;
 
+/**
+ * Timing middleware, only enabled in dev
+ */
 const timingMiddleware = t.middleware(async ({ next, path }) => {
   const start = Date.now();
   let waitMsDisplay = '';
@@ -46,7 +63,7 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
   return result;
 });
 
-export const publicProcedure = t.procedure.use(timingMiddleware);
+export const publicProcedure = TIMING_MIDDLEWARE_ENABLED ? t.procedure.use(timingMiddleware) : t.procedure;
 
 export const protectedProcedure = publicProcedure.use(({ ctx, next }) => {
   if (!ctx.session?.user) {

@@ -1,5 +1,6 @@
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
+import type { Headers } from '@repo/wrangler-config';
 import postRouter from './router/post';
 import { createTRPCContext as createTRPCContextInternal, router } from './trpc';
 

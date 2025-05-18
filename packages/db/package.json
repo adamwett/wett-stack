@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
+    "@repo/wrangler-config": "workspace:*",
     "@types/node": "catalog:",
     "@types/pg": "catalog:",
     "dotenv-cli": "catalog:",

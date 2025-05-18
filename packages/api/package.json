@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
+    "@repo/wrangler-config": "workspace:*",
     "typescript": "catalog:",
     "vite": "catalog:"
   }

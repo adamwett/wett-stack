@@ -60,6 +60,12 @@ const postRouter = router({
     }
     return {};
   }),
+
+  test: publicProcedure.query(() => {
+    return {
+      message: 'Hello, world!',
+    };
+  }),
 });
 
 export default postRouter;

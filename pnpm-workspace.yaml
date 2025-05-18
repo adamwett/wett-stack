@@ -66,6 +66,7 @@ catalog:
   url-join: ^5.0.0
   valibot: ^1.1.0
   vite: ^6.3.5
+  wrangler: ^4.15.2
 ignoredBuiltDependencies:
   - "@swc/core"
   - "@tailwindcss/oxide"
