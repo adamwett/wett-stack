@@ -1,0 +1,2 @@
+- Building fails with `length of undefined` error.
+  - Run `pnpm clean` and try again.

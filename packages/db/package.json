@@ -40,7 +40,6 @@
     "@types/pg": "catalog:",
     "dotenv-cli": "catalog:",
     "drizzle-kit": "catalog:",
-    "eslint": "catalog:",
     "shx": "catalog:",
     "typescript": "catalog:"
   }

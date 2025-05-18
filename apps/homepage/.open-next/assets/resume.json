@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "theme": "professional",
+    "lastModified": "2025-03-21T00:00:00.000Z"
+  },
+  "basics": {
+    "name": "Adam Wettreich",
+    "label": "Software Engineer",
+    "email": "adamwettreich@icloud.com",
+    "website": "https://wett.dev/",
+    "url": "https://wett.dev/",
+    "location": {
+      "city": "Raleigh",
+      "countryCode": "NC"
+    },
+    "profiles": [
+      {
+        "network": "linkedin",
+        "username": "adamwett",
+        "url": "https://www.linkedin.com/in/adamwett/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Streak Mobile (Startup)",
+      "position": "Software Engineer",
+      "startDate": "2023-12-15",
+      "endDate": "2024-07-15",
+      "summary": "Rebuilt a spaghetti codebase and toolchain into a much simpler and maintainable Expo app",
+      "highlights": [
+        "Implemented reusable components and design system from Figma prototypes",
+        "Replicated all exisitng features within 3 months and implemented additional features such as OAuth login, venue management, and accessibility compliance",
+        "Switched from a monolithic backend to Firebase, reducing complexity and hosting costs"
+      ]
+    },
+    {
+      "company": "Best Impressions Caterers",
+      "position": "Caterer (Seasonal)",
+      "startDate": "2021-05-01",
+      "endDate": "2023-08-01",
+      "summary": "Prepared and served food at various events throughout the Charlotte area"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Languages",
+      "keywords": ["TypeScript / JavaScript", "HTML", "CSS", "SQL", "Python", "Java"]
+    },
+    {
+      "name": "Frontend",
+      "level": "Advanced",
+      "keywords": ["React", "Next.js", "TanStack Query", "Expo / React Native", "CSS / Tailwind"]
+    },
+    {
+      "name": "Backend",
+      "level": "Intermediate",
+      "keywords": ["Node.js", "Postgres", "tRPC", "Deno", "LAMP"]
+    },
+    {
+      "name": "Serverless",
+      "level": "Intermediate",
+      "keywords": ["Supabase", "Cloudflare", "Deno Deploy", "Firebase"]
+    },
+    {
+      "name": "Traditional",
+      "level": "Intermediate",
+      "keywords": ["Docker", "Linux", "Amazon Web Services", "Google Cloud Platform"]
+    },
+    {
+      "name": "Principles",
+      "level": "Beginner",
+      "keywords": ["Functional Programming", "SSoT", "IaC", "RESTful APIs", "Serverless Architecture"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Mobile Application",
+      "startDate": "2024-07-09",
+      "description": "Building a frictionless social media app to help fight FOMO and revitalize college nightlife",
+      "highlights": [
+        "Built with Expo, React Native, Supabase, and TanStack Query",
+        "Background updates based on GPS location makes the app useful without hassle",
+        "Get notified about events and specials at your favorite bars",
+        "Branded for individual universities and their cities to leverage school spirit and local trends"
+      ],
+      "url": "https://www.ncparks.gov/education/passport-program"
+    },
+    {
+      "name": "Home Server",
+      "startDate": "2018-06-01",
+      "endDate": "2018-09-01",
+      "description": "Ubuntu server running on an old Mac Pro",
+      "highlights": [
+        "Personal cloud for photos and backups",
+        "Virtual machines for Windows & Linux apps",
+        "Media server for streaming movies & shows",
+        "Various multiplayer game servers for fun with friends"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Sigma Nu Fraternity",
+      "position": "Treasurer",
+      "url": "https://sigmanu.org/",
+      "startDate": "2024-01-01",
+      "endDate": "2025-01-01",
+      "summary": "Responsible for creating, managing and collecting a $120,000 budget",
+      "highlights": [
+        "Created serverless function that automatically reserves library rooms for members",
+        "Used Gale-Shapley algorithm to optimize room allocations in the chapter house",
+        "Closed 80% of delinquent accounts by offering partial forgiveness",
+        "Negotiated a 50% reduction in historical debt owed by the chapter to the national office"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "NC State University",
+      "url": "https://www.csc.ncsu.edu/",
+      "area": "Computer Science (expected 2025)",
+      "studyType": "Bachelors",
+      "startDate": "2022-01-09",
+      "courses": [
+        "Favorite electives: Functional Programming in Scheme; Automata, Grammars, and Computability; Automated Learning and Data Analysis; Digital Privacy Mathematics"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Code Contest Winner",
+      "date": "2016-06-01",
+      "awarder": "Iredell-Statesville School District",
+      "summary": "Built a 3D first-person 'Slender Man' horror game with Unity"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Human Beings",
+      "keywords": ["Philosophy", "Cognitive Science", "Culture", "Semiotics"]
+    },
+    {
+      "name": "Visual Arts",
+      "keywords": ["Photography", "Graphic Design", "Motion Graphics", "Filmmaking"]
+    },
+    {
+      "name": "Systems",
+      "keywords": ["Entropy", "Emergence", "Economics", "Game Theory"]
+    }
+  ]
+}

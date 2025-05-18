@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Bullshit",
+    "url": "https://callingbullshit.org/syllabus.html",
+    "slug": "bullshit",
+    "description": "free course on the science of bullshit"
+  },
+  {
+    "name": "Youtube Downloader",
+    "url": "https://cobalt.tools/",
+    "slug": "ytd",
+    "description": "best youtube downloader i've found to date"
+  },
+  {
+    "name": "My resume",
+    "url": "https://registry.jsonresume.org/adamwett",
+    "slug": "resume",
+    "description": "my resume"
+  },
+  {
+    "name": "My linkedin",
+    "url": "https://www.linkedin.com/in/adamwett/",
+    "slug": "li",
+    "description": "my linkedin profile"
+  },
+  {
+    "name": "My github",
+    "url": "https://github.com/adamwett",
+    "slug": "gh",
+    "description": "my github profile"
+  }
+]

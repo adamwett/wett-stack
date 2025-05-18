@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "auth:schema:generate": "turbo run auth:schema:generate",
+    "postauth:schema:generate": "echo NOTE: you will also need to fix styles and db:push your new schema",
+    "build": "turbo run build",
+    "clean": "turbo run clean",
+    "db:push": "turbo -F @repo/db push",
+    "db:studio": "turbo -F @repo/db studio",
+    "dev": "turbo watch dev --continue",
+    "env:copy-example": "turbo run env:copy-example",
+    "env:remove": "turbo run env:remove",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "postclean": "git clean -xdf .cache .turbo node_modules",
+    "start": "turbo run start",
+    "typecheck": "turbo run typecheck",
+    "ui-add": "turbo run ui-add -F @repo/ui --"
+  },
+  "packageManager": "pnpm@10.10.0",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
+  },
+  "engines": {
+    "node": ">=22.10.0"
+  }
+}
