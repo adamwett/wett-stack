@@ -1,7 +1,7 @@
-import { initTRPC, TRPCError } from '@trpc/server';
-import SuperJSON from 'superjson';
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
+import { TRPCError, initTRPC } from '@trpc/server';
+import SuperJSON from 'superjson';
 
 export const createTRPCContext = async ({
   auth,
@@ -42,9 +42,7 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
   const result = await next();
   const end = Date.now();
 
-  console.log(
-    `\t[TRPC] /${path} executed after ${end - start}ms${waitMsDisplay}`,
-  );
+  console.log(`\t[TRPC] /${path} executed after ${end - start}ms${waitMsDisplay}`);
   return result;
 });
 

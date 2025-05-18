@@ -3,7 +3,5 @@
   "license": "MIT",
   "type": "module",
   "private": true,
-  "files": [
-    "*.json"
-  ]
+  "files": ["*.json"]
 }

@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 export default function ResumePage() {
-	return redirect("https://registry.jsonresume.org/adamwett");
+  return redirect('https://registry.jsonresume.org/adamwett');
 }

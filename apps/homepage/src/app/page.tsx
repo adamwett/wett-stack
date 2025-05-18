@@ -141,6 +141,7 @@ export default function HomePage() {
         <Card href='/high-scores' text='high scores' />
         <Card href='/orca' text='orca' />
         <Card href='/fitgirl-says' text='fitgirl says' />
+        <Card href='/links' text='link shortener' />
       </div>
       <TextWall />
     </>

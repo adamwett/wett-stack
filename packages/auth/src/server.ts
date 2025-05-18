@@ -1,6 +1,6 @@
-import { betterAuth, type BetterAuthOptions } from 'better-auth';
-import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import type { DatabaseInstance } from '@repo/db/client';
+import { type BetterAuthOptions, betterAuth } from 'better-auth';
+import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 
 export interface AuthOptions {
   webUrl: string;
@@ -20,11 +20,7 @@ export const getBaseOptions = (db: DatabaseInstance): BetterAuthOptions => ({
   plugins: [],
 });
 
-export const createAuth = ({
-  webUrl,
-  db,
-  authSecret,
-}: AuthOptions): AuthInstance => {
+export const createAuth = ({ webUrl, db, authSecret }: AuthOptions): AuthInstance => {
   return betterAuth({
     ...getBaseOptions(db),
     secret: authSecret,

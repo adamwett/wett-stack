@@ -16,8 +16,7 @@ export const createApi = ({
 }) => {
   return {
     trpcRouter: appRouter,
-    createTRPCContext: ({ headers }: { headers: Headers }) =>
-      createTRPCContextInternal({ auth, db, headers }),
+    createTRPCContext: ({ headers }: { headers: Headers }) => createTRPCContextInternal({ auth, db, headers }),
   };
 };
 

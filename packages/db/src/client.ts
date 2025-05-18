@@ -1,4 +1,4 @@
-import { drizzle, NodePgDatabase } from 'drizzle-orm/node-postgres';
+import { type NodePgDatabase, drizzle } from 'drizzle-orm/node-postgres';
 
 import * as schema from './schema';
 
