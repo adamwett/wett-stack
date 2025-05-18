@@ -19,10 +19,6 @@
       "cache": false,
       "interactive": true
     },
-    "//#format-and-lint": {},
-    "//#format-and-lint:fix": {
-      "cache": false
-    },
     "typecheck": {
       "dependsOn": ["^build"],
       "outputs": [".cache/tsbuildinfo.json"]

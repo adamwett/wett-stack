@@ -6,6 +6,8 @@ out/
 .turbo/
 .vscode/
 .next/
+.open-next/
+.wrangler/
 
 .DS_Store
 
