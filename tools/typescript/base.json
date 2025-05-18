@@ -19,6 +19,5 @@
     "module": "es2022",
     "moduleResolution": "bundler",
     "noEmit": true
-  },
-  "exclude": ["node_modules", "build", "dist", "out"]
+  }
 }

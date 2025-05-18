@@ -1,18 +1,23 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./base.json",
   "compilerOptions": {
-    "allowImportingTsExtensions": true,
-    "declaration": true,
-    "declarationMap": true,
-    "inlineSources": false,
-    "jsx": "react-jsx",
-    "lib": ["DOM", "ES2022"],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "target": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "jsx": "preserve",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "preserveWatchOutput": true
-  },
-  "exclude": ["node_modules"]
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true
+  }
 }

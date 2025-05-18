@@ -4,10 +4,10 @@ out/
 
 .cache/
 .turbo/
+.vscode/
+.next/
+
+.DS_Store
 
 .env*
 !.env.example
-
-.DS_Store
-.vscode
-.next/

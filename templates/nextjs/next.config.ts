@@ -1,12 +1,11 @@
 import type { NextConfig } from 'next';
 
-const config: NextConfig = {
+const nextConfig: NextConfig = {
   output: 'export',
   distDir: 'dist',
   eslint: {
     ignoreDuringBuilds: true,
   },
-  transpilePackages: ['@repo/ui'],
 };
 
-export default config;
+export default nextConfig;
