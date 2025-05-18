@@ -28,7 +28,6 @@
     "react-hook-form": "catalog:",
     "tailwindcss": "catalog:",
     "three": "catalog:",
-    "trpc": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
