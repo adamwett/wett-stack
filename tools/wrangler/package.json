@@ -6,7 +6,10 @@
   "types": "types/index.d.ts",
   "scripts": {
     "types": "tsx wrangler-types-helper.ts",
-    "build": "tsc --build"
+    "build": "tsc --build",
+    "dev": "wrangler dev",
+    "secrets:add": "wrangler secret put",
+    "secrets:list": "wrangler secret list"
   },
   "devDependencies": {
     "@types/node": "catalog:",

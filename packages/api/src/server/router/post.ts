@@ -5,8 +5,8 @@ import { TRPCError } from '@trpc/server';
 import * as v from 'valibot';
 import { protectedProcedure, publicProcedure, router } from '../trpc';
 
-const postRouter = router({
-  all: protectedProcedure.query(({ ctx }) => {
+export const postRouter = router({
+  all: publicProcedure.query(({ ctx }) => {
     return ctx.db.query.post.findMany({
       columns: {
         id: true,
@@ -67,5 +67,3 @@ const postRouter = router({
     };
   }),
 });
-
-export default postRouter;

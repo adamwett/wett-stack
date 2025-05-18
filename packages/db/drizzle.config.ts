@@ -1,18 +1,12 @@
 import type { Config } from 'drizzle-kit';
-import * as v from 'valibot';
 
-const envSchema = v.object({
-  DB_POSTGRES_URL: v.pipe(v.string(), v.minLength(1)),
-});
-
-const env = v.parse(envSchema, process.env);
-
-// Supabase pooling URL uses 6543, which we don't need for migrations
-const nonPoolingUrl = env.DB_POSTGRES_URL.replace(':6543', ':5432');
-
+/**
+ * Config for Drizzle Kit (migrations)
+ */
 export default {
-  schema: './src/schema.ts',
-  dialect: 'postgresql',
-  dbCredentials: { url: nonPoolingUrl },
+  dialect: 'sqlite',
+  schema: './src/schema.ts', // this can be a glob but we'll use our typesafe barrel for consistency
+  out: './migrations',
+  // dbCredentials: { url: './db.sqlite' },
   casing: 'snake_case',
 } satisfies Config;

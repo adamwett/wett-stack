@@ -17,7 +17,8 @@
     "postclean": "git clean -xdf .cache .turbo node_modules",
     "start": "turbo run start",
     "typecheck": "turbo run typecheck",
-    "ui-add": "turbo run ui-add -F @repo/ui --"
+    "ui-add": "turbo run ui-add -F @repo/ui --",
+    "worker": "cd tools/wrangler && pnpm dev"
   },
   "packageManager": "pnpm@10.10.0",
   "devDependencies": {

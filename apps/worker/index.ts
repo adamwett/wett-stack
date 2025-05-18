@@ -1,6 +1,7 @@
 import { createApi } from '@repo/api/server';
 import { type AuthInstance, createAuth } from '@repo/auth/server';
 import { type DatabaseInstance, createDb } from '@repo/db/client';
+import { type LLMInstance, createLLM } from '@repo/llm/client';
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
 
 import type { CloudflareRequest, CloudflareResponse, Env, ExportedHandler } from '@repo/wrangler-config';
@@ -18,7 +19,9 @@ export default {
       webUrl: env.PUBLIC_WEB_URL,
     });
 
-    const api = createApi({ auth, db });
+    const llm: LLMInstance = createLLM(env.OPEN_ROUTER_KEY);
+
+    const api = createApi({ auth, db, llm });
 
     const regularRequest = new Request(request.url, {
       method: request.method,

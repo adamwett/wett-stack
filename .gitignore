@@ -13,3 +13,5 @@ out/
 
 .env*
 !.env.example
+
+**/.dev.vars

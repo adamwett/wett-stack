@@ -1,0 +1,23 @@
+{
+  "name": "@repo/llm",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "typecheck": "tsc --build --noEmit --emitDeclarationOnly false"
+  },
+  "exports": {
+    "./client": {
+      "default": "./src/client.ts"
+    }
+  },
+  "dependencies": {
+    "openai": "^4.100.0",
+    "valibot": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

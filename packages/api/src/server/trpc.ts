@@ -1,5 +1,6 @@
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
+import type { LLMInstance } from '@repo/llm/client';
 import type { Headers } from '@repo/wrangler-config';
 import { TRPCError, initTRPC } from '@trpc/server';
 import SuperJSON from 'superjson';
@@ -7,19 +8,27 @@ import SuperJSON from 'superjson';
 const TIMING_MIDDLEWARE_ENABLED = false;
 
 /**
- * Create a TRPC context, including the database and auth instance
+ * Create a TRPC context
+ *
+ * Includes:
+ * - db:   Drizzle connected to D1 binding
+ * - auth: BetterAuth connected to db
+ * - llm:  OpenAI client with API key
  * @returns The database and user's session
  */
 export const createTRPCContext = async ({
   auth,
   db,
+  llm,
   headers,
 }: {
   auth: AuthInstance;
   db: DatabaseInstance;
+  llm: LLMInstance;
   headers: Headers;
 }): Promise<{
   db: DatabaseInstance;
+  llm: LLMInstance;
   session: AuthInstance['$Infer']['Session'] | null;
 }> => {
   const session = await auth.api.getSession({
@@ -27,6 +36,7 @@ export const createTRPCContext = async ({
   });
   return {
     db,
+    llm,
     session,
   };
 };

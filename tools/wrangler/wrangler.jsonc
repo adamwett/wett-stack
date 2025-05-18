@@ -3,7 +3,7 @@
   "name": "trpc-backend",
   "compatibility_date": "2025-05-18",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "apps/worker/src/index.ts",
+  "main": "../../apps/worker/index.ts",
   "d1_databases": [
 		{
 			"binding": "DB",
