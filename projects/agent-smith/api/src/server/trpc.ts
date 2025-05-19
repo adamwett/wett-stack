@@ -1,9 +1,9 @@
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
-import type { LLMInstance } from '@repo/llm/client';
 import type { Headers } from '@repo/wrangler-config';
 import { TRPCError, initTRPC } from '@trpc/server';
 import SuperJSON from 'superjson';
+import type { LLMInstance } from '../../../llm/src/client';
 
 const TIMING_MIDDLEWARE_ENABLED = false;
 

@@ -1,7 +1,7 @@
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db/client';
-import type { LLMInstance } from '@repo/llm/client';
 import type { Headers } from '@repo/wrangler-config';
+import type { LLMInstance } from '../../../llm/src/client';
 import { agentRouter } from './router/agent';
 import { messageRouter } from './router/message';
 import { postRouter } from './router/post';

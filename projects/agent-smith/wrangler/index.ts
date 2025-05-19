@@ -1,8 +1,8 @@
-import { createApi } from '@repo/api/server';
 import { type AuthInstance, createAuth } from '@repo/auth/server';
-import { type DatabaseInstance, createDb } from '@repo/db/client';
-import { type LLMInstance, createLLM } from '@repo/llm/client';
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
+import { createApi } from '../api/src/server';
+import { type DatabaseInstance, createDb } from '../db/src/client';
+import { type LLMInstance, createLLM } from '../llm/src/client';
 
 import type { CloudflareRequest, CloudflareResponse, Env, ExportedHandler } from '@repo/wrangler-config';
 
