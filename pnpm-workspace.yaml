@@ -1,8 +1,7 @@
 packages:
-  - apps/*
+  - projects/*
   - packages/*
   - tools/*
-  - templates/*
 catalog:
   "@hono/node-server": ^1.14.1
   "@hono/trpc-server": ^0.3.4

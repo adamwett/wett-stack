@@ -1,6 +1,8 @@
-import type { DatabaseInstance } from '@repo/db/client';
 import { type BetterAuthOptions, betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
+
+// TODO: make this a real generic type
+type DatabaseInstance = any;
 
 export interface AuthOptions {
   webUrl: string;

@@ -1,6 +1,0 @@
-{
-  "extends": "../typescript/internal-package.json",
-  "compilerOptions": {
-    "types": ["node"]
-  }
-}

@@ -1,0 +1,2 @@
+- Remember to run `pnpm i` and `pnpm build` after creating a new package.
+- This should resolve any typescript / path issues.

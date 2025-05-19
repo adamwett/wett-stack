@@ -22,7 +22,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/db": "workspace:*",
     "better-auth": "catalog:"
   },
   "devDependencies": {
