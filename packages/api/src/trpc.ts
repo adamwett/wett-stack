@@ -10,6 +10,9 @@ const TIMING_MIDDLEWARE_ENABLED = false;
 export type APIContext = {
   auth: AuthInstance;
   db: DatabaseInstance;
+  // TODO: we need some form of generics here so that way we can just have auth & db
+  // as barebones and then add whatever else we need in a typesafe way
+  // perhaps have the auth, db, headers, ...extras in createGenericContext??
   llm: LLMInstance;
 };
 

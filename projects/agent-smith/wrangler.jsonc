@@ -3,14 +3,14 @@
   "name": "trpc-backend",
   "compatibility_date": "2025-05-18",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "../../apps/worker/index.ts",
+  "main": "./src/index.ts",
   "d1_databases": [
 		{
-			"binding": "DB",
-			"database_name": "wett-dev-db",
-			"database_id": "294db28d-6529-43c9-ac99-6bfc74297395",
-			"migrations_table": "d1_migrations",
-			"migrations_dir": "../../packages/db/migrations"
-		}
-	]
+      "binding": "DB",
+      "database_name": "wett-dev-db",
+      "database_id": "294db28d-6529-43c9-ac99-6bfc74297395",
+      "migrations_table": "d1_migrations",
+      "migrations_dir": "./migrations"
+    }
+  ]
 }
