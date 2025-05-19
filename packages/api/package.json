@@ -15,6 +15,7 @@
   "dependencies": {
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
+    "@repo/llm": "workspace:*",
     "@trpc/server": "catalog:",
     "superjson": "catalog:",
     "url-join": "catalog:",

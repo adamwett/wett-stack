@@ -1,5 +1,6 @@
 import type { AuthInstance } from '@repo/auth/server';
 import type { DatabaseInstance } from '@repo/db';
+import type { LLMInstance } from '@repo/llm';
 import { TRPCError, initTRPC } from '@trpc/server';
 import SuperJSON from 'superjson';
 
@@ -9,6 +10,7 @@ const TIMING_MIDDLEWARE_ENABLED = false;
 export type APIContext = {
   auth: AuthInstance;
   db: DatabaseInstance;
+  llm: LLMInstance;
 };
 
 /** The context with headers */
