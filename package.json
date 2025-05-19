@@ -18,7 +18,8 @@
     "start": "turbo run start",
     "typecheck": "turbo run typecheck",
     "ui-add": "turbo run ui-add -F @repo/ui --",
-    "worker": "cd tools/wrangler && pnpm dev"
+    "wrangler:dev": "turbo -F @repo/wrangler-config dev",
+    "wrangler:apply": "turbo -F @repo/wrangler-config apply"
   },
   "packageManager": "pnpm@10.10.0",
   "devDependencies": {

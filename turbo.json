@@ -44,6 +44,20 @@
     },
     "env:remove": {
       "cache": false
+    },
+    "apply": {
+      "cache": false,
+      "interactive": true
+    },
+    "types": {
+      "cache": false
+    },
+    "secrets:add": {
+      "cache": false,
+      "interactive": true
+    },
+    "secrets:list": {
+      "cache": false
     }
   },
   "globalEnv": [],

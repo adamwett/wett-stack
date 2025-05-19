@@ -8,7 +8,9 @@
 		{
 			"binding": "DB",
 			"database_name": "wett-dev-db",
-			"database_id": "294db28d-6529-43c9-ac99-6bfc74297395"
+			"database_id": "294db28d-6529-43c9-ac99-6bfc74297395",
+			"migrations_table": "d1_migrations",
+			"migrations_dir": "../../packages/db/migrations"
 		}
 	]
 }
