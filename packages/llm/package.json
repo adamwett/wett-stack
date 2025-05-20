@@ -11,9 +11,7 @@
     "#/*": "./src/*"
   },
   "exports": {
-    ".": {
-      "default": "./src/index.ts"
-    }
+    ".": "./src/index.ts"
   },
   "dependencies": {
     "openai": "^4.100.0",

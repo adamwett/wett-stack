@@ -1,0 +1,1 @@
+ALTER TABLE `agent` ADD `model` text DEFAULT 'google/gemini-2.0-flash-exp:free' NOT NULL;

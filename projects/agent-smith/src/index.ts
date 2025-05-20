@@ -1,33 +1,33 @@
-import { type AppRoutes, createApi } from '@repo/api';
+import { createApi } from '@repo/api';
 import { fetchRequestHandler } from '@repo/api';
 import { type AuthInstance, createAuth } from '@repo/auth/server';
 import { createDb } from '@repo/db';
-import type { TableConfig } from '@repo/db/drizzle';
-import type { SQLiteTableWithColumns } from '@repo/db/drizzle';
 import { type LLMInstance, createLLM } from '@repo/llm';
 
 // ENDPOINTS
-import { agentRouter } from './endpoints/agent';
-import { messageRouter } from './endpoints/message';
-import { postRouter } from './endpoints/post';
+import { agentRouter } from '#/endpoints/agent';
+import { postRouter } from '#/endpoints/post';
+import { threadRouter } from '#/endpoints/thread';
 
+// import { renderTrpcPanel } from 'trpc-ui';
 // SCHEMAS
-import { agent } from './schemas/agents';
-import { user } from './schemas/auth';
-import { message } from './schemas/messages';
-import { post } from './schemas/posts';
+import { agents } from '#/schemas/agents';
+import { user } from '#/schemas/auth';
+import { posts } from '#/schemas/posts';
+import { messages, threads } from '#/schemas/threads';
 
 const routes = {
   agents: agentRouter,
-  messages: messageRouter,
+  threads: threadRouter,
   posts: postRouter,
 };
 
 // biome-ignore lint/suspicious/noExplicitAny: TODO: there's some typescript fuckery I need to do in createDb to get it to tell TS what the table names are. For now, we use any and optional chaining. Ik its AIDS. When you fix it make sure you don't make ctx.db.query into any on accident (by using unknown)
 const tables: any = {
-  agent,
-  message,
-  post,
+  agents,
+  messages,
+  threads,
+  posts,
   user,
 };
 
@@ -52,6 +52,10 @@ export default {
     };
 
     const api = createApi(context, routes);
+
+    // const panel = renderTrpcPanel(api.trpcRouter, { url: 'http://localhost:8787/trpc' });
+
+    // return new Response(panel);
 
     return fetchRequestHandler({
       endpoint: '/trpc',

@@ -10,20 +10,24 @@
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "types": "wrangler types wrangler.d.ts",
     "dev": "wrangler dev",
+    "push": "drizzle-kit generate",
     "apply": "wrangler d1 migrations apply wett-dev-db",
+    "migrate": "pnpm push && pnpm apply",
     "secrets:add": "wrangler secret put",
-    "secrets:list": "wrangler secret list"
+    "secrets:list": "wrangler secret list",
+    "studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@repo/api": "workspace:*",
-    "@repo/db": "workspace:*",
     "@repo/auth": "workspace:*",
+    "@repo/db": "workspace:*",
     "@repo/llm": "workspace:*",
     "valibot": "catalog:"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/node": "catalog:",
+    "drizzle-kit": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:",
     "wrangler": "catalog:"

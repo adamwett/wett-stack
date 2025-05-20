@@ -2,7 +2,7 @@ import { TRPCError, protectedProcedure, publicProcedure, router } from '@repo/ap
 import { desc, eq } from '@repo/db/drizzle';
 import * as v from 'valibot';
 import { user } from '#/schemas/auth';
-import { PostInsertSchema, post } from '#/schemas/posts';
+import { PostInsertSchema, posts } from '#/schemas/posts';
 
 export const postRouter = router({
   all: publicProcedure.query(({ ctx }) => {
@@ -12,25 +12,25 @@ export const postRouter = router({
         title: true,
         createdAt: true,
       },
-      orderBy: desc(post.createdAt),
+      orderBy: desc(posts.createdAt),
     });
   }),
 
   one: publicProcedure.input(v.object({ id: v.pipe(v.string(), v.uuid()) })).query(async ({ ctx, input }) => {
     const [dbPost] = await ctx.db
       .select({
-        id: post.id,
-        title: post.title,
-        content: post.content,
-        createdAt: post.createdAt,
+        id: posts.id,
+        title: posts.title,
+        content: posts.content,
+        createdAt: posts.createdAt,
         author: {
           id: user.id,
           name: user.name,
         },
       })
-      .from(post)
-      .innerJoin(user, eq(post.createdBy, user.id))
-      .where(eq(post.id, input.id));
+      .from(posts)
+      .innerJoin(user, eq(posts.createdBy, user.id))
+      .where(eq(posts.id, input.id));
 
     if (!dbPost) {
       throw new TRPCError({
@@ -42,7 +42,7 @@ export const postRouter = router({
   }),
 
   create: protectedProcedure.input(PostInsertSchema).mutation(async ({ ctx, input }) => {
-    await ctx.db.insert(post).values({
+    await ctx.db.insert(posts).values({
       createdBy: ctx.session.user.id,
       ...input,
     });
@@ -50,7 +50,7 @@ export const postRouter = router({
   }),
 
   delete: protectedProcedure.input(v.object({ id: v.pipe(v.string(), v.uuid()) })).mutation(async ({ ctx, input }) => {
-    const { results } = (await ctx.db.delete(post).where(eq(post.id, input.id))) as D1Result<typeof post>;
+    const { results } = (await ctx.db.delete(posts).where(eq(posts.id, input.id))) as D1Result<typeof posts>;
     // TODO: This was using rowCount earlier but idk
     if (results.length === 0) {
       throw new TRPCError({

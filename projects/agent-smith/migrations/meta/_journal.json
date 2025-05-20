@@ -8,6 +8,41 @@
       "when": 1747610077320,
       "tag": "0000_productive_violations",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1747756740370,
+      "tag": "0001_easy_wraith",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1747756921280,
+      "tag": "0002_dashing_bullseye",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1747766788663,
+      "tag": "0003_thankful_leech",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1747766948190,
+      "tag": "0004_lonely_harry_osborn",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1747768322440,
+      "tag": "0005_special_thaddeus_ross",
+      "breakpoints": true
     }
   ]
 }

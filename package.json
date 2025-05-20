@@ -2,7 +2,6 @@
   "private": true,
   "license": "MIT",
   "type": "module",
-  "workspaces": ["projects/agent-smith/api", "projects/agent-smith/db", "projects/agent-smith/llm"],
   "scripts": {
     "auth:schema:generate": "turbo run auth:schema:generate",
     "postauth:schema:generate": "echo NOTE: you will also need to fix styles and db:push your new schema",

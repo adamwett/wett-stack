@@ -2,7 +2,7 @@ import { createInsertSchema, integer, sql, sqliteTable, text } from '@repo/db/dr
 import * as v from 'valibot';
 import { user } from './auth';
 
-export const post = sqliteTable('post', {
+export const posts = sqliteTable('post', {
   id: text('id').primaryKey().default(sql`(uuid())`),
   title: text('title').notNull(),
   content: text('content').notNull(),
@@ -12,4 +12,4 @@ export const post = sqliteTable('post', {
     .notNull(),
 });
 
-export const PostInsertSchema = v.omit(createInsertSchema(post), ['id', 'createdAt', 'createdBy']);
+export const PostInsertSchema = v.omit(createInsertSchema(posts), ['id', 'createdAt', 'createdBy']);

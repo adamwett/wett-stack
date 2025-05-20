@@ -6,135 +6,24 @@ settings:
 
 catalogs:
   default:
-    '@hookform/resolvers':
-      specifier: ^5.0.1
-      version: 5.0.1
-    '@opennextjs/cloudflare':
-      specifier: ^1.0.3
-      version: 1.0.3
-    '@pmndrs/assets':
-      specifier: ^1.7.0
-      version: 1.7.0
-    '@radix-ui/react-avatar':
-      specifier: ^1.1.9
-      version: 1.1.9
-    '@radix-ui/react-dialog':
-      specifier: ^1.1.13
-      version: 1.1.13
-    '@radix-ui/react-dropdown-menu':
-      specifier: ^2.1.14
-      version: 2.1.14
-    '@radix-ui/react-icons':
-      specifier: ^1.3.2
-      version: 1.3.2
-    '@radix-ui/react-label':
-      specifier: ^2.1.6
-      version: 2.1.6
-    '@radix-ui/react-slot':
-      specifier: ^1.2.2
-      version: 1.2.2
-    '@radix-ui/react-toast':
-      specifier: ^1.2.13
-      version: 1.2.13
-    '@radix-ui/react-tooltip':
-      specifier: ^1.2.6
-      version: 1.2.6
-    '@react-three/drei':
-      specifier: ^10.0.4
-      version: 10.0.8
-    '@react-three/fiber':
-      specifier: ^9.1.0
-      version: 9.1.2
-    '@tailwindcss/postcss':
-      specifier: ^4.1.7
-      version: 4.1.7
-    '@trpc/server':
-      specifier: ^11.1.2
-      version: 11.1.2
     '@types/node':
       specifier: ^22.15.17
       version: 22.15.18
-    '@types/react':
-      specifier: ^19.1.3
-      version: 19.1.4
-    '@types/react-dom':
-      specifier: ^19.1.3
-      version: 19.1.5
-    '@types/three':
-      specifier: ^0.176.0
-      version: 0.176.0
-    better-auth:
-      specifier: ^1.2.7
-      version: 1.2.8
-    class-variance-authority:
-      specifier: ^0.7.1
-      version: 0.7.1
-    drizzle-orm:
-      specifier: ^0.43.1
-      version: 0.43.1
-    drizzle-valibot:
-      specifier: ^0.4.1
-      version: 0.4.1
-    lucide-react:
-      specifier: ^0.511.0
-      version: 0.511.0
-    next:
-      specifier: ^15.3.2
-      version: 15.3.2
-    next-themes:
-      specifier: ^0.4.6
-      version: 0.4.6
-    postcss:
-      specifier: ^8.5.3
-      version: 8.5.3
-    radix-ui:
-      specifier: ^1.4.1
-      version: 1.4.1
-    react:
-      specifier: ^19.1.0
-      version: 19.1.0
-    react-dom:
-      specifier: ^19.1.0
-      version: 19.1.0
-    react-hook-form:
-      specifier: ^7.54.2
-      version: 7.56.4
-    sonner:
-      specifier: ^2.0.3
-      version: 2.0.3
-    superjson:
-      specifier: ^2.2.2
-      version: 2.2.2
-    tailwind-merge:
-      specifier: ^3.2.0
-      version: 3.3.0
-    tailwindcss:
-      specifier: ^4.1.6
-      version: 4.1.7
-    tailwindcss-animate:
-      specifier: ^1.0.7
-      version: 1.0.7
-    three:
-      specifier: ^0.176.0
-      version: 0.176.0
+    drizzle-kit:
+      specifier: ^0.31.1
+      version: 0.31.1
     tsx:
       specifier: ^4.19.4
       version: 4.19.4
     typescript:
       specifier: ^5.8.3
       version: 5.8.3
-    url-join:
-      specifier: ^5.0.0
-      version: 5.0.0
     valibot:
       specifier: ^1.1.0
       version: 1.1.0
     wrangler:
       specifier: ^4.15.2
       version: 4.15.2
-    zod:
-      specifier: ^3.24.1
-      version: 3.24.4
 
 overrides:
   esbuild@<=0.24.2: '>=0.25.0'
@@ -311,6 +200,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 22.15.18
+      drizzle-kit:
+        specifier: 'catalog:'
+        version: 0.31.1
       tsx:
         specifier: 'catalog:'
         version: 4.19.4
@@ -877,6 +769,9 @@ packages:
     resolution: {integrity: sha512-GeDxvtjiRuoyWVU9nQneId879zIyNdL05bS7RKiqMkfBSKpHMWHLoRyRqjYWLaXmX/llKO1hTlqHDmatkQAjPA==}
     hasBin: true
 
+  '@drizzle-team/brocli@0.10.2':
+    resolution: {integrity: sha512-z33Il7l5dKjUgGULTqBsQBQwckHh5AbIuxhdsIxDDiZAzBOrZO6q9ogcWC65kU382AfynTfgNumVcNIjuIua6w==}
+
   '@ecies/ciphers@0.2.3':
     resolution: {integrity: sha512-tapn6XhOueMwht3E2UzY0ZZjYokdaw9XtL9kEyjhQ/Fb9vL9xTFbOaI+fV0AWvTpYu4BNloC6getKW6NtSg4mA==}
     engines: {bun: '>=1', deno: '>=2', node: '>=16'}
@@ -885,6 +780,14 @@ packages:
 
   '@emnapi/runtime@1.4.3':
     resolution: {integrity: sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ==}
+
+  '@esbuild-kit/core-utils@3.3.2':
+    resolution: {integrity: sha512-sPRAnw9CdSsRmEtnsl2WXWdyquogVpB3yZ3dgwJfe8zrOzTsV7cJvmwrKVa+0ma5BoiGJ+BoqkMvawbayKUsqQ==}
+    deprecated: 'Merged into tsx: https://tsx.is'
+
+  '@esbuild-kit/esm-loader@2.6.5':
+    resolution: {integrity: sha512-FxEMIkJKnodyA1OaCUoEvbYRkoZlLZ4d/eXFu9Fh8CbBBgP5EmZxrfTRyN0qpXZ4vOvqnE5YdRdcrmUUXuU+dA==}
+    deprecated: 'Merged into tsx: https://tsx.is'
 
   '@esbuild/aix-ppc64@0.25.4':
     resolution: {integrity: sha512-1VCICWypeQKhVbE9oW/sJaAmjLxhVqacdkvPLEjwlttjfwENRSClS8EjBz0KzRyFSCPDIkuXW34Je/vk7zdB7Q==}
@@ -3003,6 +2906,10 @@ packages:
   draco3d@1.5.7:
     resolution: {integrity: sha512-m6WCKt/erDXcw+70IJXnG7M3awwQPAsZvJGX5zY7beBqpELw6RDGkYVU0W43AFxye4pDZ5i2Lbyc/NNGqwjUVQ==}
 
+  drizzle-kit@0.31.1:
+    resolution: {integrity: sha512-PUjYKWtzOzPtdtQlTHQG3qfv4Y0XT8+Eas6UbxCmxTj7qgMf+39dDujf1BP1I+qqZtw9uzwTh8jYtkMuCq+B0Q==}
+    hasBin: true
+
   drizzle-orm@0.43.1:
     resolution: {integrity: sha512-dUcDaZtE/zN4RV/xqGrVSMpnEczxd5cIaoDeor7Zst9wOe/HzC/7eAaulywWGYXdDEc9oBPMjayVEDg0ziTLJA==}
     peerDependencies:
@@ -3148,6 +3055,11 @@ packages:
   es-set-tostringtag@2.1.0:
     resolution: {integrity: sha512-j6vWzfrGVfyXxge+O0x5sh6cvxAog0a/4Rdd2K36zCMV5eJ+/+tOAngRO8cODMNWbVRdVlmGZQL2YS3yR8bIUA==}
     engines: {node: '>= 0.4'}
+
+  esbuild-register@3.6.0:
+    resolution: {integrity: sha512-H2/S7Pm8a9CL1uhp9OvjwrBh5Pvx0H8qVOxNu8Wed9Y7qv56MPtq+GGM8RJpq6glYJn9Wspr8uw7l55uyinNeg==}
+    peerDependencies:
+      esbuild: '>=0.25.0'
 
   esbuild@0.25.4:
     resolution: {integrity: sha512-8pgjLUcUjcgDg+2Q4NYXnPbo/vncAY4UmyaCm0jZevERqCHZIaWwdJHkf8XQtu4AxSKCdvrUbT0XUr1IdZzI8Q==}
@@ -4463,7 +4375,7 @@ snapshots:
       '@aws-crypto/sha256-js': 3.0.0
       '@aws-crypto/supports-web-crypto': 3.0.0
       '@aws-crypto/util': 3.0.0
-      '@aws-sdk/types': 3.398.0
+      '@aws-sdk/types': 3.804.0
       '@aws-sdk/util-locate-window': 3.804.0
       '@aws-sdk/util-utf8-browser': 3.259.0
       tslib: 1.14.1
@@ -4481,7 +4393,7 @@ snapshots:
   '@aws-crypto/sha256-js@3.0.0':
     dependencies:
       '@aws-crypto/util': 3.0.0
-      '@aws-sdk/types': 3.398.0
+      '@aws-sdk/types': 3.804.0
       tslib: 1.14.1
 
   '@aws-crypto/sha256-js@5.2.0':
@@ -4500,7 +4412,7 @@ snapshots:
 
   '@aws-crypto/util@3.0.0':
     dependencies:
-      '@aws-sdk/types': 3.398.0
+      '@aws-sdk/types': 3.804.0
       '@aws-sdk/util-utf8-browser': 3.259.0
       tslib: 1.14.1
 
@@ -5481,6 +5393,8 @@ snapshots:
       picomatch: 4.0.2
       which: 4.0.0
 
+  '@drizzle-team/brocli@0.10.2': {}
+
   '@ecies/ciphers@0.2.3(@noble/ciphers@1.3.0)':
     dependencies:
       '@noble/ciphers': 1.3.0
@@ -5489,6 +5403,16 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
+
+  '@esbuild-kit/core-utils@3.3.2':
+    dependencies:
+      esbuild: 0.25.4
+      source-map-support: 0.5.21
+
+  '@esbuild-kit/esm-loader@2.6.5':
+    dependencies:
+      '@esbuild-kit/core-utils': 3.3.2
+      get-tsconfig: 4.10.0
 
   '@esbuild/aix-ppc64@0.25.4':
     optional: true
@@ -7748,6 +7672,15 @@ snapshots:
 
   draco3d@1.5.7: {}
 
+  drizzle-kit@0.31.1:
+    dependencies:
+      '@drizzle-team/brocli': 0.10.2
+      '@esbuild-kit/esm-loader': 2.6.5
+      esbuild: 0.25.4
+      esbuild-register: 3.6.0(esbuild@0.25.4)
+    transitivePeerDependencies:
+      - supports-color
+
   drizzle-orm@0.43.1(@libsql/client@0.15.6)(@types/pg@8.15.2)(kysely@0.28.2)(pg@8.16.0):
     optionalDependencies:
       '@libsql/client': 0.15.6
@@ -7809,6 +7742,13 @@ snapshots:
       get-intrinsic: 1.3.0
       has-tostringtag: 1.0.2
       hasown: 2.0.2
+
+  esbuild-register@3.6.0(esbuild@0.25.4):
+    dependencies:
+      debug: 4.4.1
+      esbuild: 0.25.4
+    transitivePeerDependencies:
+      - supports-color
 
   esbuild@0.25.4:
     optionalDependencies:
@@ -8659,7 +8599,7 @@ snapshots:
 
   send@1.2.0:
     dependencies:
-      debug: 4.3.6
+      debug: 4.4.1
       encodeurl: 2.0.0
       escape-html: 1.0.3
       etag: 1.8.1
