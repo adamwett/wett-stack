@@ -2,6 +2,7 @@ import { type BetterAuthOptions, betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 
 // TODO: make this a real generic type
+// biome-ignore lint/suspicious/noExplicitAny: this is ok here
 type DatabaseInstance = any;
 
 export interface AuthOptions {
