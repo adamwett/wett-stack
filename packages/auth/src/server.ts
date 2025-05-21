@@ -1,9 +1,6 @@
+import type { DatabaseInstance } from '@repo/db/client';
 import { type BetterAuthOptions, betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
-
-// TODO: make this a real generic type
-// biome-ignore lint/suspicious/noExplicitAny: this is ok here
-type DatabaseInstance = any;
 
 export interface AuthOptions {
   webUrl: string;
@@ -27,7 +24,7 @@ export const createAuth = ({ webUrl, db, authSecret }: AuthOptions): AuthInstanc
   return betterAuth({
     ...getBaseOptions(db),
     secret: authSecret,
-    // trustedOrigins: [webUrl].map((url) => new URL(url).origin),
+    trustedOrigins: [webUrl].map((url) => new URL(url).origin),
     session: {
       cookieCache: {
         enabled: true,
