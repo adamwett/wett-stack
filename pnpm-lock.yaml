@@ -117,9 +117,6 @@ catalogs:
     tailwindcss:
       specifier: ^4.1.6
       version: 4.1.7
-    tailwindcss-animate:
-      specifier: ^1.0.7
-      version: 1.0.7
     three:
       specifier: ^0.176.0
       version: 0.176.0
@@ -267,6 +264,12 @@ importers:
       class-variance-authority:
         specifier: 'catalog:'
         version: 0.7.1
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      lucide-react:
+        specifier: 'catalog:'
+        version: 0.511.0(react@19.1.0)
       next-themes:
         specifier: 'catalog:'
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -279,6 +282,12 @@ importers:
       tailwind-merge:
         specifier: 'catalog:'
         version: 3.3.0
+      tailwindcss:
+        specifier: 'catalog:'
+        version: 4.1.7
+      tw-animate-css:
+        specifier: ^1.3.0
+        version: 1.3.0
     devDependencies:
       '@repo/tailwind-config':
         specifier: workspace:*
@@ -478,9 +487,6 @@ importers:
       tailwindcss:
         specifier: 'catalog:'
         version: 4.1.7
-      tailwindcss-animate:
-        specifier: 'catalog:'
-        version: 1.0.7(tailwindcss@4.1.7)
 
   tools/typescript: {}
 
@@ -4655,11 +4661,6 @@ packages:
   tailwind-merge@3.3.0:
     resolution: {integrity: sha512-fyW/pEfcQSiigd5SNn0nApUOxx0zB/dm6UDU/rEwc2c3sX2smWUNbapHv+QRqLGVp9GWX3THIa7MUGPo+YkDzQ==}
 
-  tailwindcss-animate@1.0.7:
-    resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
-    peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
-
   tailwindcss@4.1.7:
     resolution: {integrity: sha512-kr1o/ErIdNhTz8uzAYL7TpaUuzKIE6QPQ4qmSdxnoX/lo+5wmUHQA6h3L5yIqEImSRnAAURDirLu/BgiXGPAhg==}
 
@@ -4739,6 +4740,9 @@ packages:
 
   tunnel-rat@0.1.2:
     resolution: {integrity: sha512-lR5VHmkPhzdhrM092lI2nACsLO4QubF0/yoOhzX7c+wIpbN1GjHNzCc91QlpxBi+cnx8vVJ+Ur6vL5cEoQPFpQ==}
+
+  tw-animate-css@1.3.0:
+    resolution: {integrity: sha512-jrJ0XenzS9KVuDThJDvnhalbl4IYiMQ/XvpA0a2FL8KmlK+6CSMviO7ROY/I7z1NnUs5NnDhlM6fXmF40xPxzw==}
 
   type-is@2.0.1:
     resolution: {integrity: sha512-OZs6gsjF4vMp32qrCbiVSkrFmXtG/AZhY3t0iAMrMBiAZyV9oALtXO8hsrHbMXF9x6L3grlFuwW2oAz7cav+Gw==}
@@ -9982,10 +9986,6 @@ snapshots:
 
   tailwind-merge@3.3.0: {}
 
-  tailwindcss-animate@1.0.7(tailwindcss@4.1.7):
-    dependencies:
-      tailwindcss: 4.1.7
-
   tailwindcss@4.1.7: {}
 
   tapable@2.2.1: {}
@@ -10073,6 +10073,8 @@ snapshots:
       - '@types/react'
       - immer
       - react
+
+  tw-animate-css@1.3.0: {}
 
   type-is@2.0.1:
     dependencies:

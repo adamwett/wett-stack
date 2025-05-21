@@ -9,7 +9,6 @@
     "./style.css": "./style.css"
   },
   "dependencies": {
-    "tailwindcss": "catalog:",
-    "tailwindcss-animate": "catalog:"
+    "tailwindcss": "catalog:"
   }
 }

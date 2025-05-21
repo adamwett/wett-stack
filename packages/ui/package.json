@@ -4,19 +4,10 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "files": ["dist"],
-  "imports": {
-    "#*": "./src/*"
-  },
   "exports": {
-    "./lib/*": {
-      "types": "./dist/src/lib/*.d.ts",
-      "default": "./src/lib/*.ts"
-    },
-    "./components/*": {
-      "types": "./dist/src/components/*.d.ts",
-      "default": "./src/components/*.tsx"
-    }
+    "./lib/*": "./src/lib/*.ts",
+    "./components/*": "./src/components/*.tsx",
+    "./globals.css": "./src/globals.css"
   },
   "scripts": {
     "build": "tsc",
@@ -35,10 +26,14 @@
     "@radix-ui/react-toast": "catalog:",
     "@radix-ui/react-tooltip": "catalog:",
     "class-variance-authority": "catalog:",
+    "clsx": "^2.1.1",
+    "lucide-react": "catalog:",
     "next-themes": "catalog:",
     "radix-ui": "catalog:",
     "sonner": "catalog:",
-    "tailwind-merge": "catalog:"
+    "tailwind-merge": "catalog:",
+    "tailwindcss": "catalog:",
+    "tw-animate-css": "^1.3.0"
   },
   "devDependencies": {
     "@repo/tailwind-config": "workspace:*",

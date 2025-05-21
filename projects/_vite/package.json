@@ -1,9 +1,10 @@
 {
-  "name": "vite-tanstack-router-example",
+  "name": "template-vite-tanstack-router",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --port 3000",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
     "build": "vite build && tsc --noEmit",
     "preview": "vite preview",
     "serve": "vite preview",
