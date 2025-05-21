@@ -1,35 +1,38 @@
 {
-    "name": "vite-tanstack-router-example",
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "vite --port 3000",
-        "build": "vite build && tsc --noEmit",
-        "preview": "vite preview",
-        "serve": "vite preview",
-        "start": "vite"
-    },
-    "dependencies": {
-        "@repo/ui": "workspace:*",
-        "@tailwindcss/vite": "catalog:",
-        "@tanstack/react-router": "^1.120.5",
-        "@tanstack/react-router-devtools": "^1.120.6",
-        "@tanstack/router-plugin": "^1.120.5",
-        "autoprefixer": "^10.4.20",
-        "postcss": "catalog:",
-        "react": "catalog:",
-        "react-dom": "catalog:",
-        "redaxios": "^0.5.1",
-        "tailwindcss": "catalog:",
-        "zod": "catalog:"
-    },
-    "devDependencies": {
-        "@repo/tailwind-config": "workspace:*",
-        "@repo/typescript-config": "workspace:*",
-        "@types/react": "catalog:",
-        "@types/react-dom": "catalog:",
-        "@vitejs/plugin-react": "^4.3.4",
-        "typescript": "catalog:",
-        "vite": "catalog:"
-    }
+  "name": "vite-tanstack-router-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3000",
+    "build": "vite build && tsc --noEmit",
+    "preview": "vite preview",
+    "serve": "vite preview",
+    "start": "vite",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "fix": "pnpm run lint:fix"
+  },
+  "dependencies": {
+    "@repo/ui": "workspace:*",
+    "@tailwindcss/vite": "catalog:",
+    "@tanstack/react-router": "^1.120.5",
+    "@tanstack/react-router-devtools": "^1.120.6",
+    "@tanstack/router-plugin": "^1.120.5",
+    "autoprefixer": "^10.4.20",
+    "postcss": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "redaxios": "^0.5.1",
+    "tailwindcss": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/tailwind-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "catalog:",
+    "vite": "catalog:"
+  }
 }
