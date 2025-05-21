@@ -1,26 +1,19 @@
-import { RouterProvider, createRouter } from '@tanstack/react-router';
+import { RouterProvider } from '@tanstack/react-router';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { routeTree } from './routeTree.gen';
+import { createRouter } from './router';
 import './globals.css';
 
-// Set up a Router instance
-const router = createRouter({
-  routeTree,
-  defaultPreload: 'intent',
-  scrollRestoration: true,
-});
+const router = createRouter();
 
-// Register things for typesafety
-declare module '@tanstack/react-router' {
-  interface Register {
-    router: typeof router;
-  }
-}
-
-// biome-ignore lint/style/noNonNullAssertion: this is okay
+// biome-ignore lint/style/noNonNullAssertion: we need this
 const rootElement = document.getElementById('app')!;
 
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
-  root.render(<RouterProvider router={router} />);
+  root.render(
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>,
+  );
 }

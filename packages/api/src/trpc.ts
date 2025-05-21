@@ -45,6 +45,7 @@ export const t = initTRPC.context<typeof createGenericContext>().create({
  * The tRPC router instance
  */
 export const router = t.router;
+export type RouterInstance = ReturnType<typeof router>;
 
 /**
  * Timing middleware, only enabled in dev

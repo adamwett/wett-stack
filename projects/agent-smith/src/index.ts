@@ -3,24 +3,11 @@ import { fetchRequestHandler } from '@repo/api';
 import { type AuthInstance, createAuth } from '@repo/auth/server';
 import { createDb } from '@repo/db';
 import { type LLMInstance, createLLM } from '@repo/llm';
-
-// ENDPOINTS
-import { agentRouter } from '#/endpoints/agent';
-import { postRouter } from '#/endpoints/post';
-import { threadRouter } from '#/endpoints/thread';
-
-// import { renderTrpcPanel } from 'trpc-ui';
-// SCHEMAS
+import { appRouter } from '#/router';
 import { agents } from '#/schemas/agents';
 import { user } from '#/schemas/auth';
 import { posts } from '#/schemas/posts';
 import { messages, threads } from '#/schemas/threads';
-
-const routes = {
-  agents: agentRouter,
-  threads: threadRouter,
-  posts: postRouter,
-};
 
 // biome-ignore lint/suspicious/noExplicitAny: TODO: there's some typescript fuckery I need to do in createDb to get it to tell TS what the table names are. For now, we use any and optional chaining. Ik its AIDS. When you fix it make sure you don't make ctx.db.query into any on accident (by using unknown)
 const tables: any = {
@@ -51,11 +38,21 @@ export default {
       llm,
     };
 
-    const api = createApi(context, routes);
+    const api = createApi(context, appRouter);
 
-    // const panel = renderTrpcPanel(api.trpcRouter, { url: 'http://localhost:8787/trpc' });
-
-    // return new Response(panel);
+    // TODO: figure out proper cors
+    // tRPC client looking for options
+    if (request.method === 'OPTIONS') {
+      return new Response(null, {
+        status: 204,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          'Access-Control-Allow-Credentials': 'true',
+        },
+      });
+    }
 
     return fetchRequestHandler({
       endpoint: '/trpc',
@@ -65,6 +62,15 @@ export default {
         api.createTRPCContext({
           headers: request.headers,
         }),
+      // cors here since origins are different
+      responseMeta: () => ({
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          'Access-Control-Allow-Credentials': 'true',
+        },
+      }),
     });
   },
 } satisfies ExportedHandler<Env>;

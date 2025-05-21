@@ -20,6 +20,20 @@ const ThreadNewMessageSchema = v.object({
 });
 
 export const threadRouter = router({
+  all: publicProcedure.query(async ({ ctx }) => {
+    const allThreads = await ctx.db.select().from(threads).orderBy(desc(threads.createdAt));
+    console.log(`got ${allThreads.length} threads`);
+    return allThreads;
+  }),
+  one: publicProcedure.input(v.object({ id: v.string() })).query(async ({ ctx, input }) => {
+    console.log('one input: ', input);
+    const thread = await ctx.db
+      .select()
+      .from(threads)
+      .where(eq(threads.id, input.id))
+      .limit(1)
+      .then((r) => r[0]);
+  }),
   appendMessage: publicProcedure.input(ThreadNewMessageSchema).mutation(async ({ ctx, input }) => {
     console.log('input ', input);
 

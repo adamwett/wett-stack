@@ -1,6 +1,7 @@
 import { Button } from '@repo/ui/components/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@repo/ui/components/card';
 import { createFileRoute } from '@tanstack/react-router';
+
 export const Route = createFileRoute('/')({
   component: HomeComponent,
 });
