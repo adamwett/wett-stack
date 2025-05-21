@@ -24,7 +24,6 @@
     "tailwindcss": "catalog:"
   },
   "devDependencies": {
-    "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:",

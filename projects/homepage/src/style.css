@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@repo/tailwind-config/style.css";
+@import "@repo/ui/globals.css";
 
 /**
  * This is necessary to load the @repo/ui package when moving from

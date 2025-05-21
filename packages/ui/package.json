@@ -10,7 +10,7 @@
     "./globals.css": "./src/globals.css"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --build",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "dev": "tsc",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
@@ -36,7 +36,6 @@
     "tw-animate-css": "^1.3.0"
   },
   "devDependencies": {
-    "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/react": "catalog:",
     "react": "catalog:",
