@@ -5,7 +5,6 @@
     "skipLibCheck": true,
     "target": "ES2022",
     "lib": ["ES2022", "DOM"],
-    "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
     "verbatimModuleSyntax": true,
@@ -14,8 +13,8 @@
     "disableSourceOfProjectReferenceRedirect": true,
     "tsBuildInfoFile": "${configDir}/.cache/tsbuildinfo.json",
     "strict": true,
+    "allowJs": false,
     "noUncheckedIndexedAccess": true,
-    "checkJs": true,
     "module": "es2022",
     "moduleResolution": "bundler",
     "noEmit": true

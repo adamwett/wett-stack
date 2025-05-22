@@ -2,61 +2,62 @@
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
   "tasks": {
-    "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**"]
-    },
-    "clean": {
-      "cache": false
-    },
     "dev": {
       "dependsOn": ["^dev"],
       "persistent": false,
       "cache": false
     },
+    "clean": {
+      "cache": false
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": ["dist/**"]
+    },
+    "auth:schema:generate": {
+      "cache": false,
+      "interactive": true
+    },
     "typecheck": {
       "dependsOn": ["^build"],
       "outputs": [".cache/tsbuildinfo.json"]
     },
-    "lint": {
-      "cache": false
+    "push": {
+      "env": ["DB_POSTGRES_URL"],
+      "cache": false,
+      "interactive": true
     },
-    "fix": {
-      "cache": false
-    },
-
     "start": {
       "dependsOn": ["^build"]
+    },
+    "studio": {
+      "cache": false,
+      "persistent": true
     },
     "ui-add": {
       "cache": false,
       "interactive": true
     },
-
-    "drizzle:studio": {
-      "cache": false,
-      "persistent": true
-    },
-
-    "wrangler:migrate": {
-      "cache": false,
-      "interactive": true
-    },
-    "wrangler:types": {
+    "env:copy-example": {
       "cache": false
     },
-    "wrangler:secrets:add": {
-      "cache": false,
-      "interactive": true
-    },
-    "wrangler:secrets:list": {
+    "env:remove": {
       "cache": false
     },
-
-    "auth:schema:generate": {
+    "apply": {
       "cache": false,
       "interactive": true
+    },
+    "types": {
+      "cache": false
+    },
+    "secrets:add": {
+      "cache": false,
+      "interactive": true
+    },
+    "secrets:list": {
+      "cache": false
     }
   },
   "globalEnv": [],

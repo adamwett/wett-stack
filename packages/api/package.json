@@ -2,16 +2,17 @@
   "name": "@repo/api",
   "private": true,
   "type": "module",
-  "imports": {
-    "#/*": "./src/*"
-  },
   "exports": {
     ".": "./src/index.ts",
     "./client": "./src/client/index.ts"
   },
   "scripts": {
     "build": "tsc",
-    "clean": "git clean -xdf .cache .turbo dist node_modules"
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "tsc",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "lint": "biome check .",
+    "fix": "biome check --write ."
   },
   "dependencies": {
     "@repo/auth": "workspace:*",

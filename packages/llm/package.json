@@ -5,7 +5,10 @@
   "scripts": {
     "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "typecheck": "tsc --build --noEmit --emitDeclarationOnly false"
+    "dev": "tsc",
+    "typecheck": "tsc --build --noEmit --emitDeclarationOnly false",
+    "lint": "biome check .",
+    "fix": "biome check --write ."
   },
   "imports": {
     "#/*": "./src/*"

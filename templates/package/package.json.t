@@ -1,10 +1,9 @@
 {
-  "name": "@repo/db",
+  "name": "@repo/REPLACE_ME",
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts",
-    "./schema": "./src/schema.ts"
+    ".": "./src/index.ts"
   },
   "scripts": {
     "build": "tsc --build",
@@ -14,14 +13,8 @@
     "lint": "biome check .",
     "fix": "biome check --write ."
   },
-  "dependencies": {
-    "@repo/llm": "workspace:*",
-    "drizzle-orm": "catalog:",
-    "drizzle-valibot": "catalog:",
-    "valibot": "catalog:"
-  },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "typescript": "catalog:"
-  }
+  },
 }

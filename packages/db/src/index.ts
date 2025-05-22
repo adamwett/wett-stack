@@ -6,6 +6,7 @@ import type { AnyD1Database } from 'drizzle-orm/d1';
 import * as schema from './schema';
 
 export type DatabaseInstance = DrizzleD1Database<typeof schema>;
+// export type DatabaseInstance = DrizzleD1Database<Record<string, unknown>>;
 
 export const createDb = <T extends AnyD1Database>(db: T) => {
   return drizzle(db, {

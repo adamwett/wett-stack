@@ -1,32 +1,52 @@
 {
-  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
   "vcs": {
-    "enabled": true,
     "clientKind": "git",
+    "enabled": true,
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": true,
-    "ignore": ["**/routeTree.gen.ts", "**/*.d.ts", "**/node_modules"]
+    "include": ["src/*", "**/*.ts", "**/*.tsx", "**/*.json"],
+    "ignore": ["**/geojson.json"],
+    "ignoreUnknown": true
+  },
+  "organizeImports": {
+    "enabled": true
   },
   "formatter": {
     "enabled": true,
+    "formatWithErrors": true,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 120
   },
-  "organizeImports": { "enabled": true },
   "linter": {
     "enabled": true,
-    "rules": { "recommended": true }
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "useExhaustiveDependencies": "off",
+        "noUnusedImports": "warn"
+      },
+      "style": {
+        "useNumberNamespace": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "error",
+          "fix": "safe",
+          "options": {
+            "attributes": ["class", "className"]
+          }
+        }
+      }
+    }
   },
   "javascript": {
     "formatter": {
-      "jsxQuoteStyle": "single",
       "quoteStyle": "single",
+      "jsxQuoteStyle": "single",
       "semicolons": "always",
-      "bracketSameLine": false,
-      "bracketSpacing": true,
       "arrowParentheses": "always"
     }
   }

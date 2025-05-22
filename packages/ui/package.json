@@ -14,6 +14,9 @@
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "dev": "tsc",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "lint": "biome check .",
+    "fix": "biome check --write .",
+
     "ui-add": "pnpm dlx shadcn@canary add"
   },
   "dependencies": {

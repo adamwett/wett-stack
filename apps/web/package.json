@@ -2,19 +2,17 @@
   "name": "web",
   "private": true,
   "type": "module",
-  "imports": {
-    "#/*": "./src/*"
-  },
   "scripts": {
-    "dev": "vite --port 3000",
-    "clean": "git clean -xdf .cache .turbo dist node_modules",
     "build": "vite build && tsc --noEmit",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "dev": "vite --port 3000",
+    "typecheck": "tsc --build --noEmit --emitDeclarationOnly false",
+    "lint": "biome check .",
+    "fix": "biome check --write .",
+
     "preview": "vite preview",
     "serve": "vite preview",
-    "start": "vite",
-    "lint": "biome check .",
-    "lint:fix": "biome check --write .",
-    "fix": "pnpm run lint:fix"
+    "start": "vite"
   },
   "dependencies": {
     "@repo/api": "workspace:*",

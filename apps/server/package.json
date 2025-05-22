@@ -11,14 +11,18 @@
   "scripts": {
     "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "types": "wrangler types wrangler.d.ts",
     "dev": "wrangler dev",
-    "push": "drizzle-kit generate",
-    "apply": "wrangler d1 migrations apply wett-dev-db",
-    "migrate": "pnpm push && pnpm apply",
-    "secrets:add": "wrangler secret put",
-    "secrets:list": "wrangler secret list",
-    "studio": "drizzle-kit studio"
+    "typecheck": "tsc --build --noEmit --emitDeclarationOnly false",
+    "lint": "biome check .",
+    "fix": "biome check --write .",
+
+    "drizzle:generate": "drizzle-kit generate",
+    "drizzle:studio": "drizzle-kit studio",
+
+    "wrangler:types": "wrangler types wrangler.d.ts",
+    "wrangler:secrets:add": "wrangler secret put",
+    "wrangler:secrets:list": "wrangler secret list",
+    "wrangler:migrate": "pnpm drizzle:generate && wrangler d1 migrations apply wett-dev-db"
   },
   "dependencies": {
     "@repo/api": "workspace:*",
