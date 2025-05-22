@@ -1,5 +1,5 @@
 {
-  "name": "template-vite-tanstack-router",
+  "name": "web",
   "private": true,
   "type": "module",
   "imports": {
@@ -17,7 +17,8 @@
     "fix": "pnpm run lint:fix"
   },
   "dependencies": {
-    "@repo/agent-smith": "workspace:*",
+    "@repo/api": "workspace:*",
+    "@repo/auth": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/react-query": "catalog:",
@@ -26,6 +27,7 @@
     "@tanstack/router-plugin": "^1.120.5",
     "@trpc/client": "catalog:",
     "@trpc/tanstack-react-query": "catalog:",
+    "@vitejs/plugin-react-swc": "^3.9.0",
     "autoprefixer": "^10.4.20",
     "postcss": "catalog:",
     "react": "catalog:",
@@ -33,6 +35,7 @@
     "redaxios": "^0.5.1",
     "superjson": "catalog:",
     "tailwindcss": "catalog:",
+    "valibot": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {

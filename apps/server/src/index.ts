@@ -3,27 +3,13 @@ import { fetchRequestHandler } from '@repo/api';
 import { type AuthInstance, createAuth } from '@repo/auth/server';
 import { createDb } from '@repo/db';
 import { type LLMInstance, createLLM } from '@repo/llm';
-import { appRouter } from '#/router';
-import { agents } from '#/schemas/agents';
-import { user } from '#/schemas/auth';
-import { posts } from '#/schemas/posts';
-import { messages, threads } from '#/schemas/threads';
-
-// biome-ignore lint/suspicious/noExplicitAny: TODO: there's some typescript fuckery I need to do in createDb to get it to tell TS what the table names are. For now, we use any and optional chaining. Ik its AIDS. When you fix it make sure you don't make ctx.db.query into any on accident (by using unknown)
-const tables: any = {
-  agents,
-  messages,
-  threads,
-  posts,
-  user,
-};
 
 /**
  * Combines all the packages into a single worker
  */
 export default {
   async fetch(request: Request, env: Env) {
-    const db = createDb(env.DB, tables);
+    const db = createDb(env.DB);
 
     const auth: AuthInstance = createAuth({
       db,
@@ -38,7 +24,7 @@ export default {
       llm,
     };
 
-    const api = createApi(context, appRouter);
+    const api = createApi(context);
 
     // TODO: figure out proper cors
     // tRPC client looking for options
@@ -59,7 +45,7 @@ export default {
       req: request,
       router: api.trpcRouter,
       createContext: () =>
-        api.createTRPCContext({
+        api.injectHeaders({
           headers: request.headers,
         }),
       // cors here since origins are different

@@ -6,7 +6,8 @@
     "#/*": "./src/*"
   },
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./client": "./src/client/index.ts"
   },
   "scripts": {
     "build": "tsc",
@@ -17,6 +18,7 @@
     "@repo/db": "workspace:*",
     "@repo/llm": "workspace:*",
     "@trpc/server": "catalog:",
+    "@trpc/client": "catalog:",
     "superjson": "catalog:",
     "url-join": "catalog:",
     "valibot": "catalog:"

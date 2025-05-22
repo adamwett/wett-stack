@@ -1,35 +1,16 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createRouter as createTanStackRouter } from '@tanstack/react-router';
-import { createTRPCClient, httpBatchLink } from '@trpc/client';
 import { createTRPCOptionsProxy } from '@trpc/tanstack-react-query';
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen';
 
-import type { AppRouter } from '@repo/agent-smith/router';
-import SuperJSON from 'superjson';
+import { trpcClient } from '@/clients/trpcClient';
 
 export const queryClient = new QueryClient();
 
-export const trpc = createTRPCOptionsProxy<AppRouter>({
-  client: createTRPCClient({
-    links: [
-      httpBatchLink({
-        // since we are using Vinxi, the server is running on the same port,
-        // this means in dev the url is `http://localhost:3000/trpc`
-        // and since its from the same origin, we don't need to explicitly set the full URL
-        url: 'http://localhost:8787/trpc',
-        transformer: SuperJSON,
-        // rt-stack says we need this but it fucks up CORS
-        // fetch(url, options) {
-        //   return fetch(url, {
-        //     ...options,
-        //     credentials: 'include',
-        //   });
-        // },
-      }),
-    ],
-  }),
+export const trpc = createTRPCOptionsProxy({
+  client: trpcClient,
   queryClient,
 });
 

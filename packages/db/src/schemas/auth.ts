@@ -1,4 +1,4 @@
-import { integer, sqliteTable, text } from '@repo/db/drizzle';
+import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
 export const user = sqliteTable('user', {
   id: text('id').primaryKey(),
@@ -10,8 +10,8 @@ export const user = sqliteTable('user', {
   updatedAt: integer('updated_at', { mode: 'timestamp' }).notNull(),
 });
 
-export type UserSchema = typeof user.$inferSelect;
-export type UserInsertSchema = typeof user.$inferInsert;
+// export type UserSchema = typeof user.$inferSelect;
+// export type UserInsertSchema = typeof user.$inferInsert;
 
 export const session = sqliteTable('session', {
   id: text('id').primaryKey(),

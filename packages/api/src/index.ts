@@ -1,15 +1,20 @@
-import type { AnyTRPCRouter } from '@trpc/server';
-import { type APIContext, type RouterInstance, createGenericContext, router } from './trpc';
+import { agentRouter } from './routes/agent';
+import { threadRouter } from './routes/thread';
+import { type APIContext, createTRPCContext, router } from './trpc';
 
-export type AppRoutes = Record<string, AnyTRPCRouter>;
+const appRouter = router({
+  agents: agentRouter,
+  threads: threadRouter,
+});
 
-// TODO: find an actual type for this
-export const createApi = (context: APIContext, router: RouterInstance) => {
+export const createApi = (context: APIContext) => {
   return {
-    trpcRouter: router,
-    createTRPCContext: ({ headers }: { headers: Headers }) => createGenericContext({ ...context, headers }),
+    trpcRouter: appRouter,
+    injectHeaders: ({ headers }: { headers: Headers }) => createTRPCContext({ ...context, headers }),
   };
 };
+
+export type AppRouter = typeof appRouter;
 
 export * from './trpc';
 export { TRPCError } from '@trpc/server';

@@ -1,4 +1,4 @@
-import type { DatabaseInstance } from '@repo/db/client';
+import type { DatabaseInstance } from '@repo/db';
 import { type BetterAuthOptions, betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 

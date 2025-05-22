@@ -10,23 +10,17 @@ const TIMING_MIDDLEWARE_ENABLED = false;
 export type APIContext = {
   auth: AuthInstance;
   db: DatabaseInstance;
-  // TODO: we need some form of generics here so that way we can just have auth & db
-  // as barebones and then add whatever else we need in a typesafe way
-  // perhaps have the auth, db, headers, ...extras in createGenericContext??
   llm: LLMInstance;
 };
 
 /** The context with headers */
 export type APIContextWithHeaders = APIContext & { headers: Headers };
 
-/** NOTE: Session can be null if the user is not logged in */
-export type APIContextWithSession = APIContextWithHeaders & { session: AuthInstance['$Infer']['Session'] | null };
-
-export const createGenericContext = async (context: APIContextWithHeaders): Promise<APIContextWithSession> => {
-  const session = await context.auth.api.getSession({
-    headers: context.headers,
+export const createTRPCContext = async (context: APIContextWithHeaders) => {
+  const { auth, headers } = context;
+  const session = await auth.api.getSession({
+    headers,
   });
-
   return {
     ...context,
     session,
@@ -37,7 +31,7 @@ export const createGenericContext = async (context: APIContextWithHeaders): Prom
  * tRPC context with SuperJSON as the serializer
  * @returns The TRPC instance
  */
-export const t = initTRPC.context<typeof createGenericContext>().create({
+export const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: SuperJSON,
 });
 
@@ -45,7 +39,6 @@ export const t = initTRPC.context<typeof createGenericContext>().create({
  * The tRPC router instance
  */
 export const router = t.router;
-export type RouterInstance = ReturnType<typeof router>;
 
 /**
  * Timing middleware, only enabled in dev

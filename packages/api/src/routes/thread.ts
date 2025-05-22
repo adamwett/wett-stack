@@ -1,12 +1,10 @@
-import { publicProcedure, router } from '@repo/api';
-import { TRPCError } from '@repo/api';
-import { asc, desc, eq } from '@repo/db/drizzle';
-import type { Message, MessageRole } from '@repo/llm';
+import { TRPCError, publicProcedure, router } from '@repo/api';
+import { asc, desc, eq } from '@repo/db';
+import { messages, models, threads } from '@repo/db/schema';
+import type { Message } from '@repo/llm';
+import { DEFAULT_SYSTEM_PROMPT } from '@repo/llm';
 import * as v from 'valibot';
-import { DEFAULT_SYSTEM_PROMPT } from '#/schemas/agents';
-import { DEFAULT_MODEL, ModelNameSchema } from '#/schemas/models';
-import { messages, threads } from '#/schemas/threads';
-import { uuid } from '#/utils';
+import { uuid } from '../utils';
 
 // The frontend should keep track of what agent is selected for each thread we can assume that it knows what the default agent is, and the model that it wants to use. This way we aren't running tons of queries every time we want to send a message
 
@@ -15,7 +13,7 @@ import { uuid } from '#/utils';
 const ThreadNewMessageSchema = v.object({
   threadId: v.optional(v.string()),
   systemPrompt: v.optional(v.string()),
-  model: v.optional(ModelNameSchema),
+  model: v.optional(v.string()),
   content: v.string(),
 });
 
@@ -33,16 +31,19 @@ export const threadRouter = router({
       .where(eq(threads.id, input.id))
       .limit(1)
       .then((r) => r[0]);
+    return thread;
   }),
   appendMessage: publicProcedure.input(ThreadNewMessageSchema).mutation(async ({ ctx, input }) => {
     console.log('input ', input);
 
     //
-    // 0. Use defaults if the user doesn't provide them
+    // 0. Make sure model is good
     //
 
-    const systemPrompt = input.systemPrompt ?? DEFAULT_SYSTEM_PROMPT;
-    const model = input.model ?? DEFAULT_MODEL;
+    if (input.model) {
+      const modelResult = (await ctx.db.select().from(models).where(eq(models.name, input.model)).limit(1))[0];
+      if (!modelResult) throw new TRPCError({ code: 'BAD_REQUEST', message: 'Model not supported' });
+    }
 
     //
     // 1. See if we need to make a new thread or not
@@ -57,8 +58,8 @@ export const threadRouter = router({
         .insert(threads)
         .values({
           id: uuid(),
-          model,
-          systemPrompt,
+          model: input.model,
+          systemPrompt: input.systemPrompt,
         })
         .returning();
 
@@ -83,7 +84,7 @@ export const threadRouter = router({
     })();
 
     const newConvo: Message[] = [
-      { role: 'system', content: systemPrompt },
+      { role: 'system', content: input.systemPrompt ?? DEFAULT_SYSTEM_PROMPT },
       ...existingConvo,
       { content: input.content, role: 'user' },
     ];
@@ -94,7 +95,7 @@ export const threadRouter = router({
     // 4. Send the new conversation to the LLM
     //
 
-    const askAgentResult = (await ctx.llm.completion(newConvo, model)).choices[0]?.message.content;
+    const askAgentResult = (await ctx.llm.completion(newConvo, input.model)).choices[0]?.message.content;
 
     if (!askAgentResult) throw new TRPCError({ code: 'INTERNAL_SERVER_ERROR', message: 'Agent returned no result' });
 

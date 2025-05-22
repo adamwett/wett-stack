@@ -4,16 +4,17 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./drizzle": "./src/drizzle.ts",
-    "./utils": "./src/utils.ts"
+    "./schema": "./src/schema.ts"
   },
   "scripts": {
     "build": "tsc",
     "clean": "git clean -xdf .cache .turbo dist node_modules"
   },
   "dependencies": {
+    "@repo/llm": "workspace:*",
     "drizzle-orm": "catalog:",
-    "drizzle-valibot": "catalog:"
+    "drizzle-valibot": "catalog:",
+    "valibot": "catalog:"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
