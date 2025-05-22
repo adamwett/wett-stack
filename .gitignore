@@ -11,7 +11,7 @@ out/
 
 .DS_Store
 
-.env*
-!.env.example
-
-**/.dev.vars
+# No env vars are sensitive
+# .env*
+# !.env.example
+# .dev.vars

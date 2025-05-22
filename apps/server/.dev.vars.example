@@ -1,5 +1,0 @@
-# All secrets (their keys atleast) most go here or else wrangler won't output them in typegen
-
-SERVER_AUTH_SECRET=1234567890
-PUBLIC_WEB_URL=http://localhost:8787
-OPEN_ROUTER_KEY=REPLACE_ME
